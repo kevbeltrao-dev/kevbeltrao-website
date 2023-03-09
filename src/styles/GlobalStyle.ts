@@ -31,6 +31,10 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
   }
 
+  body {
+    height: 100vh;
+  }
+
   section {
     scroll-snap-align: start;
   }

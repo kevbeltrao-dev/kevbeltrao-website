@@ -4,12 +4,8 @@ export const Main = styled.main`
   background-color: var(--color-primary);
   box-shadow: 0 0 0 calc(100vw - 1500px) var(--color-primary);
   
-  max-width: 1728px; // Macbook Pro 16"
-  margin: 0 auto;
-
   overflow-y: scroll;
   overflow-x: hidden;
-
   height: 100vh;
   scroll-snap-points-y: repeat(100vh);
   scroll-snap-type: y mandatory;

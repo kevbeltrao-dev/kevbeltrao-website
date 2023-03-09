@@ -71,7 +71,7 @@ const Banner = ({
           (currently for Portuguese speakers).
         </Description>
 
-        <Button tag="a" href="/kevinBeltrao.pdf" target="_blank">download my résumé</Button>
+        <Button tag="a" href="/kevinBeltrao.pdf" target="_blank">my résumé</Button>
         
         <ContactButton onClick={openModal} />
 
