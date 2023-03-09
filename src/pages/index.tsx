@@ -1,6 +1,6 @@
-import { useMemo, useRef, WheelEventHandler, useCallback } from 'react';
+import { useMemo, useRef } from 'react';
 import Head from 'next/head';
-import { Main } from './styles';
+import { Main } from '../styles/main';
 import useScroll from '@/hooks/useScroll';
 import Banner from '@/sections/Banner';
 import Articles from '@/sections/Articles';
