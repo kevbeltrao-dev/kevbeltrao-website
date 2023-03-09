@@ -7,7 +7,9 @@ export const Main = styled.main`
   max-width: 1728px; // Macbook Pro 16"
   margin: 0 auto;
 
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
   height: 100vh;
   scroll-snap-points-y: repeat(100vh);
   scroll-snap-type: y mandatory;

@@ -58,7 +58,7 @@ export const StyledButton = styled.button`
     width: 70px;
     height: 70px;
     right: 50px;
-    bottom: 0px;
+    bottom: 40px;
   }
 `;
 

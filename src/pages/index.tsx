@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react';
+import { useState, useMemo, useRef, useCallback } from 'react';
 import Head from 'next/head';
 import { Main } from '../styles/main';
 import useScroll from '@/hooks/useScroll';
@@ -6,11 +6,17 @@ import Banner from '@/sections/Banner';
 import Articles from '@/sections/Articles';
 
 const Home = () => {
-  const mainRef = useRef<HTMLDivElement>(null);
+  const [main, setMain] = useState<HTMLDivElement | null>(null);
   const bannerRef = useRef<HTMLDivElement>(null);
   const articlesRef = useRef<HTMLDivElement>(null);
-  const scroll = useScroll(mainRef.current);
-  
+  const scroll = useScroll(main);
+
+  const mainRef = useCallback((node: HTMLDivElement) => {
+    if (node !== null) {
+      setMain(node);
+    }
+  }, []);
+
   const backgroundClass = useMemo(() => {
     if (typeof window === 'undefined') return '';
 
