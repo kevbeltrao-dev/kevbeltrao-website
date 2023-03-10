@@ -5,6 +5,10 @@ export const Container = styled.section`
   width: 100%;
   height: 100vh;
   position: relative;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 
 export const StyledCanvas = styled(Canvas)`
