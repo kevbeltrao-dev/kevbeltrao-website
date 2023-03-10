@@ -15,7 +15,7 @@ const Articles = ({ coffeeBeans, addBeans }: ArticleProps) => {
     <Container id="articles">
       <Title>Articles</Title>
 
-      <StyledCanvas camera={{ position: [0, 1, -3] }}>
+      <StyledCanvas camera={{ position: [0, 0.75, -3] }}>
         <Lights />
 
         <Physics>

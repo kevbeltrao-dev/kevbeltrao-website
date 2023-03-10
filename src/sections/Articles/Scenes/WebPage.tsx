@@ -80,7 +80,9 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
         rotation={[0, Math.PI, 0]}
         scale={0.3}
       >
-        <iframe></iframe>
+        <a target="_blank" href="https://google.com">
+          <iframe></iframe>
+        </a>
       </Html>
 
       <Html
@@ -90,9 +92,7 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
         position={[0, 2.7, 1.27]}
         color="transparent"
         style={{
-          backgroundColor: '#000',
-          height: 10,
-          width: 50,
+          backgroundColor: '#fff',
           display: 'flex',
         }}
       >
@@ -102,9 +102,9 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
             fontSize: 5,
             backgroundColor: '#000',
             color: '#fff',
-            width: '50%',
-            height: '100%',
+            width: 25,
             border: '1px solid #fff',
+            borderRadius: 3,
           }}
         >Prev</button>
 
@@ -114,9 +114,9 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
             fontSize: 5,
             backgroundColor: '#000',
             color: '#fff',
-            width: '50%',
-            height: '100%',
+            width: 25,
             border: '1px solid #fff',
+            borderRadius: 3,
           }}
         >Next</button>
       </Html>

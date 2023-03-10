@@ -7,7 +7,7 @@ const Wrapper = () => {
   const addBeans = () => {
     setCoffeeBeans([
       ...coffeeBeans,
-      ...[...new Array(10)].map((_, index) => (
+      ...[...new Array(50)].map((_, index) => (
         <CoffeeBean
           key={coffeeBeans.length + index}
           rotation={[
@@ -17,7 +17,7 @@ const Wrapper = () => {
           ]}
           position={[
             Math.random() * 5 - 2.5,
-            Math.random() * 3 + 3,
+            Math.random() * 10 + 5,
             Math.random() * 5 - 2.5,
           ]}
         />

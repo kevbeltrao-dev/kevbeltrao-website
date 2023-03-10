@@ -10,3 +10,22 @@ export const Container = styled.section`
 export const StyledCanvas = styled(Canvas)`
   cursor: pointer;
 `;
+
+export const TitleContainer = styled.div`
+  position: absolute;
+  top: 15vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+`;
+
+export const Title = styled.h2`
+  color: var(--color-primary);
+  text-transform: uppercase;
+  font-size: 5rem;
+  font-weight: 600;
+`;
+
+export const Subtitle = styled.h3`
+  color: var(--color-primary);
+`;
