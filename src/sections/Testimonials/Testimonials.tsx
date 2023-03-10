@@ -1,5 +1,6 @@
 import { ThreeEvent } from '@react-three/fiber';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState, useEffect } from 'react';
+import { Globals } from '@react-spring/core';
 import Card from './scenes/Card';
 import Lights from './scenes/Lights';
 import {
@@ -61,6 +62,12 @@ const Testimonials = () => {
         image={image}
       />
     ));}, [handleSelectCard, selectedCard]);
+
+  useEffect(() => {
+    Globals.assign({
+      frameLoop: 'always',
+    });
+  }, []);
 
   return (
     <Container>
