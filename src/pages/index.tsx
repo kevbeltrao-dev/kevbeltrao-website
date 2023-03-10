@@ -4,11 +4,10 @@ import { Main } from '../styles/main';
 import useScroll from '@/hooks/useScroll';
 import Banner from '@/sections/Banner';
 import Articles from '@/sections/Articles';
+import Testimonials from '@/sections/Testimonials/Testimonials';
 
 const Home = () => {
   const [main, setMain] = useState<HTMLDivElement | null>(null);
-  const bannerRef = useRef<HTMLDivElement>(null);
-  const articlesRef = useRef<HTMLDivElement>(null);
   const scroll = useScroll(main);
 
   const mainRef = useCallback((node: HTMLDivElement) => {
@@ -19,12 +18,14 @@ const Home = () => {
 
   const backgroundClass = useMemo(() => {
     if (typeof window === 'undefined') return '';
+    
+    const { innerHeight: screenHeight } = window;
+    
+    const sectionInScreen = Math.ceil((2 * scroll - screenHeight) / (2 * screenHeight));
 
-    if (scroll < window.innerHeight / 2) {
-      return 'first';
-    }
+    const sectionsClassNames = ['first', 'second', 'third'];
 
-    return 'second';
+    return sectionsClassNames[sectionInScreen];
   }, [scroll]);
 
   return (
@@ -40,8 +41,9 @@ const Home = () => {
       </Head>
 
       <Main className={backgroundClass} ref={mainRef}>
-        <Banner innerRef={bannerRef} />
-        <Articles innerRef={articlesRef} />
+        <Banner />
+        <Articles />
+        {/* <Testimonials /> */}
       </Main>
     </>
   );

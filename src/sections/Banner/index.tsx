@@ -9,7 +9,7 @@ import {
   // InstagramIcon,
 } from '@/icons';
 
-const Wrapper = ({ innerRef }: { innerRef: RefObject<HTMLDivElement> }) => {
+const Wrapper = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const openModal = useCallback(() => {
@@ -49,7 +49,6 @@ const Wrapper = ({ innerRef }: { innerRef: RefObject<HTMLDivElement> }) => {
   ];
   return (
     <Banner
-      innerRef={innerRef}
       topBarLinks={topBarLinks}
       isContactModalOpen={isContactModalOpen}
       openModal={openModal}

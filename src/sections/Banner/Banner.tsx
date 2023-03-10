@@ -1,4 +1,3 @@
-import { RefObject } from 'react';
 import Image from 'next/image';
 import { TopBarLinks } from './types';
 import {
@@ -18,21 +17,19 @@ import ContactModal from '@/components/ContactModal';
 
 interface BannerProps {
   isContactModalOpen: boolean;
-  innerRef: RefObject<HTMLDivElement>;
   topBarLinks: TopBarLinks;
   openModal: () => void;
   closeModal: () => void;
 }
 
 const Banner = ({
-  innerRef,
   topBarLinks,
   isContactModalOpen,
   openModal,
   closeModal,
 }: BannerProps) => {
   return (
-    <Container ref={innerRef} id="banner">
+    <Container id="banner">
       <TopBar>
         <Title>
           <LogoContainer>

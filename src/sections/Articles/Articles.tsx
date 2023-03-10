@@ -1,4 +1,4 @@
-import { RefObject } from 'react';
+import { OrbitControls } from '@react-three/drei';
 import { Physics } from '@react-three/rapier';
 import { Container, MakeItRainButton, StyledCanvas, Title } from './Scenes/styles';
 import Lights from './Scenes/Lights';
@@ -8,12 +8,11 @@ import Table from './Scenes/Table';
 interface ArticleProps {
   coffeeBeans: JSX.Element[];
   addBeans: () => void;
-  innerRef: RefObject<HTMLDivElement>;
 }
 
-const Articles = ({ coffeeBeans, addBeans, innerRef }: ArticleProps) => {
+const Articles = ({ coffeeBeans, addBeans }: ArticleProps) => {
   return (
-    <Container id="articles" ref={innerRef}>
+    <Container id="articles">
       <Title>Articles</Title>
 
       <StyledCanvas camera={{ position: [0, 1, -3] }}>
@@ -26,6 +25,8 @@ const Articles = ({ coffeeBeans, addBeans, innerRef }: ArticleProps) => {
 
           <Table />
         </Physics>
+
+        <OrbitControls enableZoom={false} />
       </StyledCanvas>
 
       <MakeItRainButton onClick={addBeans}>

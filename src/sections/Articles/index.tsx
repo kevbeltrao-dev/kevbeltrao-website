@@ -2,11 +2,7 @@ import { useState, memo, RefObject } from 'react';
 import Articles from './Articles';
 import CoffeeBean from './Scenes/CoffeeBean';
 
-interface WrapperProps {
-  innerRef: RefObject<HTMLDivElement>;
-}
-
-const Wrapper = ({ innerRef }: WrapperProps) => {
+const Wrapper = () => {
   const [coffeeBeans, setCoffeeBeans] = useState<JSX.Element[]>([]);
   const addBeans = () => {
     setCoffeeBeans([
@@ -30,7 +26,7 @@ const Wrapper = ({ innerRef }: WrapperProps) => {
   };
 
   return (
-    <Articles innerRef={innerRef} coffeeBeans={coffeeBeans} addBeans={addBeans} />
+    <Articles coffeeBeans={coffeeBeans} addBeans={addBeans} />
   );
 };
  

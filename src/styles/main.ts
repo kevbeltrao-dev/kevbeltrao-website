@@ -18,12 +18,14 @@ export const Main = styled.main`
   
   &.first {
     background-color: var(--color-primary);
-    box-shadow: 0 0 0 calc(100vw - 1500px) var(--color-primary);
   }
   
   &.second {
     background-color: var(--color-white);
-    box-shadow: 0 0 0 calc(100vw - 1500px) var(--color-white);
+  }
+
+  &.third {
+    background-color: var(--color-secondary);
   }
 
   section {
