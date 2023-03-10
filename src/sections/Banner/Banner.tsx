@@ -63,12 +63,12 @@ const Banner = ({
         <JobTitle>Software Engineer</JobTitle>
 
         <Description>
-          I love teaching and am passionate for music.
-          I write articles on my free time and also have Youtube videos
+          I love teaching and am passionate about music.
+          I write articles in my free time and also produce YouTube videos
           (currently for Portuguese speakers).
         </Description>
 
-        <Button tag="a" href="/kevinBeltrao.pdf" target="_blank">my résumé</Button>
+        <Button tag="a" href="/kevinBeltrao.pdf" target="_blank">my resume</Button>
         
         <ContactButton onClick={openModal} />
 

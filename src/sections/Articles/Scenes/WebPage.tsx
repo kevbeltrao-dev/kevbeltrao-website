@@ -8,7 +8,7 @@ interface WebPageProps {
 }
 
 const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
-  const [articles, setArticles] = useState<string[]>([]);
+  const [articles, setArticles] = useState<{ content: string; url: string }[]>([]);
   const htmlRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -19,12 +19,12 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
     containerIframe.style.width = '100%';
     containerIframe.style.height = '100%';
 
-    containerIframe.contentDocument!.body.innerHTML = articles[currentArticle];
+    containerIframe.contentDocument!.body.innerHTML = articles[currentArticle].content;
 
     const documentIframe = containerIframe.contentDocument!;
 
-    documentIframe.querySelector('.crayons-header')!.remove();
-    documentIframe.querySelector('.crayons-article-actions')!.remove();
+    documentIframe.querySelector('.crayons-header')?.remove();
+    documentIframe.querySelector('.crayons-article-actions')?.remove();
     documentIframe.querySelector('.multiple_reactions_engagement')?.remove();
     documentIframe.querySelector<HTMLElement>('.crayons-article__cover')!.style.paddingTop = '20%';
     documentIframe.querySelector<HTMLElement>('.crayons-article__header__meta')!.style.paddingTop = '15px0%';
@@ -43,8 +43,11 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
 
       const articlesDataTextsPromises = result.map((response) => response.text());
 
-      const articlesDataTexts = await Promise.all(articlesDataTextsPromises);
-      setArticles(articlesDataTexts);
+      const articlesDataTexts = await Promise.all<string[]>(articlesDataTextsPromises);
+      setArticles(articlesDataTexts.map((articleTextContent, index) => ({
+        content: articleTextContent,
+        url: articlesData[index].url,
+      })));
     };
 
     fetchData();
@@ -92,7 +95,6 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
         position={[0, 2.7, 1.27]}
         color="transparent"
         style={{
-          backgroundColor: '#fff',
           display: 'flex',
         }}
       >
@@ -107,6 +109,20 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
             borderRadius: 3,
           }}
         >Prev</button>
+
+        <a
+          href={articles[currentArticle]?.url}
+          target="_blank"
+          style={{
+            fontSize: 5,
+            backgroundColor: '#000',
+            color: '#fff',
+            width: 25,
+            border: '1px solid #fff',
+            borderRadius: 3,
+            textAlign: 'center',
+          }}
+        >Open</a>
 
         <button
           onClick={nextArticle}
