@@ -12,7 +12,12 @@ const Macbook = () => {
       <group>
         <WebPage />
 
-        <primitive object={macbook.scene} scale={10} rotation={[0, -Math.PI / 2, 0]} receiveShadow />
+        <primitive
+          object={macbook.scene}
+          scale={10}
+          rotation={[0, -Math.PI / 2, 0]}
+          receiveShadow
+        />
       </group>
     </RigidBody>
   );

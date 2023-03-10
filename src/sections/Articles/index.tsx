@@ -2,7 +2,11 @@ import { useState, memo, RefObject } from 'react';
 import Articles from './Articles';
 import CoffeeBean from './Scenes/CoffeeBean';
 
-const Wrapper = ({ innerRef }: { innerRef: RefObject<HTMLDivElement> }) => {
+interface WrapperProps {
+  innerRef: RefObject<HTMLDivElement>;
+}
+
+const Wrapper = ({ innerRef }: WrapperProps) => {
   const [coffeeBeans, setCoffeeBeans] = useState<JSX.Element[]>([]);
   const addBeans = () => {
     setCoffeeBeans([
