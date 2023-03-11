@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { Canvas } from '@react-three/fiber';
 
 export const Container = styled.section`
@@ -84,4 +84,31 @@ export const OpenArticle = styled.button`
   color: #fff;
   cursor: pointer;
   font-size: 18px;
+`;
+
+const spin = keyframes`
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+`;
+
+export const Loading = styled.div`
+  width: 80px;
+  height: 80px;
+
+  border: 10px solid #000;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+
+  display: inline-block;
+  box-sizing: border-box;
+  animation: ${spin} 1s linear infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;

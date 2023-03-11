@@ -1,6 +1,7 @@
+import { Suspense } from 'react';
 import { OrbitControls } from '@react-three/drei';
 import { Physics } from '@react-three/rapier';
-import { Container, MakeItRainButton, StyledCanvas, Title } from './Scenes/styles';
+import { Container, MakeItRainButton, StyledCanvas, Title, Loading } from './Scenes/styles';
 import Lights from './Scenes/Lights';
 import Macbook from './Scenes/Macbook';
 import Table from './Scenes/Table';
@@ -18,28 +19,30 @@ const Articles = ({ coffeeBeans, addBeans }: ArticleProps) => {
     <Container id="articles">
       <Title>Articles</Title>
 
-      <StyledCanvas camera={{ position: [0, 0.75, -3] }}>
-        <Lights />
+      <Suspense fallback={<Loading />}>
+        <StyledCanvas camera={{ position: [0, 0.75, -3] }}>
+          <Lights />
 
-        <Physics>
-          {coffeeBeans}
+          <Physics>
+            {coffeeBeans}
 
-          <Macbook />
+            <Macbook />
 
-          <RubiksCube />
-          <BoloDeRolo />
+            <RubiksCube />
+            <BoloDeRolo />
 
-          <Table />
-        </Physics>
+            <Table />
+          </Physics>
 
-        <Guitar />
+          <Guitar />
 
-        <OrbitControls enableZoom={false} />
-      </StyledCanvas>
+          <OrbitControls enableZoom={false} />
+        </StyledCanvas>
 
-      <MakeItRainButton onClick={addBeans}>
-        Make it rain
-      </MakeItRainButton>
+        <MakeItRainButton onClick={addBeans}>
+          Make it rain
+        </MakeItRainButton>
+      </Suspense>
     </Container>
   );
 };
