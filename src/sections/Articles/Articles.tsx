@@ -1,4 +1,3 @@
-import { OrbitControls } from '@react-three/drei';
 import { Physics } from '@react-three/rapier';
 import { Container, MakeItRainButton, StyledCanvas, Title } from './Scenes/styles';
 import Lights from './Scenes/Lights';
@@ -33,8 +32,6 @@ const Articles = ({ coffeeBeans, addBeans }: ArticleProps) => {
         </Physics>
 
         <Guitar />
-
-        <OrbitControls enableZoom={true} />
       </StyledCanvas>
 
       <MakeItRainButton onClick={addBeans}>
