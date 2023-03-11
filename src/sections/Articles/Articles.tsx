@@ -4,6 +4,9 @@ import { Container, MakeItRainButton, StyledCanvas, Title } from './Scenes/style
 import Lights from './Scenes/Lights';
 import Macbook from './Scenes/Macbook';
 import Table from './Scenes/Table';
+import Guitar from './Scenes/Guitar';
+import RubiksCube from './Scenes/RubiksCube';
+import BoloDeRolo from './Scenes/BoloDeRolo';
 
 interface ArticleProps {
   coffeeBeans: JSX.Element[];
@@ -23,10 +26,15 @@ const Articles = ({ coffeeBeans, addBeans }: ArticleProps) => {
 
           <Macbook />
 
+          <RubiksCube />
+          <BoloDeRolo />
+
           <Table />
         </Physics>
 
-        <OrbitControls enableZoom={false} />
+        <Guitar />
+
+        <OrbitControls enableZoom={true} />
       </StyledCanvas>
 
       <MakeItRainButton onClick={addBeans}>

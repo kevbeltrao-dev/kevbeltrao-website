@@ -16,7 +16,7 @@ const Wrapper = () => {
             Math.PI * Math.random(),
           ]}
           position={[
-            Math.random() * 5 - 2.5,
+            Math.random() * 8 - 5,
             Math.random() * 10 + 5,
             Math.random() * 5 - 2.5,
           ]}
