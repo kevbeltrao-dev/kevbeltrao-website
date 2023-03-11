@@ -1,6 +1,5 @@
 import { Html } from '@react-three/drei';
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
-import { MeshStandardMaterial } from 'three';
 
 interface WebPageProps {
   currentArticle: number;
@@ -96,6 +95,7 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
         color="transparent"
         style={{
           display: 'flex',
+          gap: 3,
         }}
       >
         <button
@@ -105,7 +105,7 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
             backgroundColor: '#000',
             color: '#fff',
             width: 25,
-            border: '1px solid #fff',
+            border: '1px solid transparent',
             borderRadius: 3,
           }}
         >Prev</button>
@@ -118,7 +118,7 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
             backgroundColor: '#000',
             color: '#fff',
             width: 25,
-            border: '1px solid #fff',
+            border: '1px solid transparent',
             borderRadius: 3,
             textAlign: 'center',
           }}
@@ -131,7 +131,7 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
             backgroundColor: '#000',
             color: '#fff',
             width: 25,
-            border: '1px solid #fff',
+            border: '1px solid transparent',
             borderRadius: 3,
           }}
         >Next</button>

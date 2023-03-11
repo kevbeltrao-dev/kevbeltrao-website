@@ -37,6 +37,14 @@ export const LogoContainer = styled.div`
   }
 `;
 
+export const Logo = styled.img.attrs({
+  src: '/logo.png',
+  alt: 'logo',
+})`
+  width: 100%;
+  height: 100%;
+`;
+
 export const SocialNetworkContainer = styled.div`
   ul {
     display: flex;

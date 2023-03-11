@@ -72,6 +72,14 @@ export const AvatarBackground = styled.div`
   z-index: 1;
 `;
 
+export const AvatarImage = styled.img.attrs({
+  src: '/avatar.png',
+  alt: 'Contact button',
+})`
+  width: 100%;
+  aspect-ratio: 1;
+`;
+
 export const Tooltip = styled.div`
   position: absolute;
   bottom: 100%;
@@ -93,7 +101,7 @@ export const Tooltip = styled.div`
     --width: 1rem;
     --ratio: calc(160 / 105);
     width: var(--width);
-    padding-top: calc(var(--width) * var(--ratio));
+    padding: 0;
     position: relative;
   }
 
@@ -116,4 +124,12 @@ export const Tooltip = styled.div`
       --width: 0.8rem;
     }
   }
+`;
+
+export const EmojiPointingDown = styled.img.attrs({
+  src: '/downPointerEmoji.png',
+  alt: 'Emoji pointing down',
+})`
+  width: 100%;
+  height: 100%;
 `;

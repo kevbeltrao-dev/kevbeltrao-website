@@ -4,6 +4,7 @@ import {
   Container,
   Title,
   LogoContainer,
+  Logo,
   SocialNetworkContainer,
   TopBar,
   Greeting,
@@ -33,7 +34,7 @@ const Banner = ({
       <TopBar>
         <Title>
           <LogoContainer>
-            <Image src="/logo.png" alt="logo" fill />
+            <Logo />
           </LogoContainer>
           <span>KevBeltrao</span>
         </Title>

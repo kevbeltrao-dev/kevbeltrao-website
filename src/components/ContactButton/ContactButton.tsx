@@ -1,5 +1,10 @@
-import Image from 'next/image';
-import { AvatarBackground, StyledButton, Tooltip } from './styles';
+import {
+  AvatarBackground,
+  StyledButton,
+  Tooltip,
+  AvatarImage,
+  EmojiPointingDown,
+} from './styles';
 
 interface ContactButtonProps {
   onClick: () => void;
@@ -9,12 +14,12 @@ const ContactButton = ({ onClick }: ContactButtonProps) => {
   return (
     <StyledButton onClick={onClick}>
       <AvatarBackground>
-        <Image src="/avatar.png" alt="Contact button" fill priority />
+        <AvatarImage />
 
         <Tooltip>
           Let&apos;s have a chat
           <div className="emoji">
-            <Image src="/downPointerEmoji.png" alt='Down pointer emoji' fill priority />
+            <EmojiPointingDown />
           </div>
         </Tooltip>
       </AvatarBackground>
