@@ -25,8 +25,15 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
     documentIframe.querySelector('.crayons-header')?.remove();
     documentIframe.querySelector('.crayons-article-actions')?.remove();
     documentIframe.querySelector('.multiple_reactions_engagement')?.remove();
-    documentIframe.querySelector<HTMLElement>('.crayons-article__cover')!.style.paddingTop = '20%';
-    documentIframe.querySelector<HTMLElement>('.crayons-article__header__meta')!.style.paddingTop = '15px0%';
+
+    const cover = documentIframe.querySelector<HTMLElement>('.crayons-article__cover');
+    cover!.style.paddingTop = '25%';
+    cover!.querySelector('img')!.style.objectFit = 'cover';
+    
+    const articleHeader = documentIframe.querySelector<HTMLElement>('.crayons-article__header__meta');
+
+    documentIframe.querySelector<HTMLElement>('.crayons-article__header__meta')!.style.paddingTop = '15px';
+    articleHeader!.querySelector<HTMLElement>('.items-start')!.style.marginBottom = '0';
   }, [articles, currentArticle]);
 
   useEffect(() => {
