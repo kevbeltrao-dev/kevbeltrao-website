@@ -1,9 +1,8 @@
-import { MouseEventHandler, useRef, useState } from 'react';
+import { MouseEventHandler, useRef, useState, useEffect } from 'react';
 import { Mesh } from 'three';
 import { useFrame, ThreeEvent } from '@react-three/fiber';
 import { Html } from '@react-three/drei';
-import { useSpring } from '@react-spring/core';
-import { a } from '@react-spring/three';
+import { useSpring, animated } from '@react-spring/three';
 
 interface CardProps {
   position: [number, number, number];
@@ -25,6 +24,19 @@ const Card = ({
   const cardRef = useRef<Mesh>(null);
   const [htmlHover, setHtmlHover] = useState(false);
   const [threeHover, setThreeHover] = useState(false);
+
+  useEffect(() => {
+    if (htmlHover || threeHover) {
+      document.body.style.cursor = 'pointer';
+      return;
+    }
+  
+    document.body.style.cursor = '';
+
+    return () => {
+      document.body.style.cursor = '';
+    };
+  }, [htmlHover, threeHover]);
 
   const spring = useSpring({
     scale: (htmlHover || threeHover) ? 1.05 : 1,
@@ -57,7 +69,7 @@ const Card = ({
 
   return (
     <>
-      <a.mesh
+      <animated.mesh
         onPointerOut={() => setThreeHover(false)}
         onPointerEnter={() => setThreeHover(true)}
         ref={cardRef}
@@ -136,7 +148,7 @@ const Card = ({
             </div>
           </Html>
         </group>
-      </a.mesh>
+      </animated.mesh>
 
     </>
   );

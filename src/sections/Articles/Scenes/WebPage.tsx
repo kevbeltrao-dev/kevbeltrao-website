@@ -30,9 +30,12 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
     cover!.style.paddingTop = '25%';
     cover!.querySelector('img')!.style.objectFit = 'cover';
     
-    const articleHeader = documentIframe.querySelector<HTMLElement>('.crayons-article__header__meta');
+    const articleHeader = documentIframe
+      .querySelector<HTMLElement>('.crayons-article__header__meta');
 
-    documentIframe.querySelector<HTMLElement>('.crayons-article__header__meta')!.style.paddingTop = '15px';
+    documentIframe
+      .querySelector<HTMLElement>('.crayons-article__header__meta')!.style.paddingTop = '15px';
+
     articleHeader!.querySelector<HTMLElement>('.items-start')!.style.marginBottom = '0';
   }, [articles, currentArticle]);
 

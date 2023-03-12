@@ -1,10 +1,15 @@
-import { useState, useMemo, useRef, useCallback } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import Head from 'next/head';
+import { Globals } from '@react-spring/three';
 import { Main } from '../styles/main';
 import useScroll from '@/hooks/useScroll';
 import Banner from '@/sections/Banner';
 import Articles from '@/sections/Articles';
 import Testimonials from '@/sections/Testimonials/Testimonials';
+
+Globals.assign({
+  frameLoop: 'always',
+});
 
 const Home = () => {
   const [main, setMain] = useState<HTMLDivElement | null>(null);
