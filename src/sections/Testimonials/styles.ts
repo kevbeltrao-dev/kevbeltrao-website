@@ -5,6 +5,7 @@ export const Container = styled.section`
   position: relative;
   height: 100vh;
   width: 100%;
+  cursor: pointer;
 
   @media (max-width: 900px) {
     display: none;
@@ -12,7 +13,6 @@ export const Container = styled.section`
 `;
 
 export const StyledCanvas = styled(Canvas)`
-  cursor: pointer;
 `;
 
 export const TitleContainer = styled.div`

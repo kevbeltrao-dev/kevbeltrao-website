@@ -23,10 +23,11 @@ const Card = ({
   image,
 }: CardProps) => {
   const cardRef = useRef<Mesh>(null);
-  const [hovered, setHovered] = useState(false);
+  const [htmlHover, setHtmlHover] = useState(false);
+  const [threeHover, setThreeHover] = useState(false);
 
   const spring = useSpring({
-    scale: hovered ? 1.05 : 1,
+    scale: (htmlHover || threeHover) ? 1.05 : 1,
     ...(isSelected
       ? {
         positionX: 0,
@@ -42,7 +43,10 @@ const Card = ({
 
     const { elapsedTime } = state.clock;
 
-    if (!isSelected || Math.abs(cardRef.current.position.y) > 0.05) {
+    if (
+      !isSelected
+      || Math.abs(cardRef.current.position.y) + position[1] > 0.01
+    ) {
       cardRef.current.position.y = position[1] + Math.sin(elapsedTime * 2) * 0.05;
     }
   });
@@ -54,8 +58,8 @@ const Card = ({
   return (
     <>
       <a.mesh
-        onPointerOut={() => setHovered(false)}
-        onPointerEnter={() => setHovered(true)}
+        onPointerOut={() => setThreeHover(false)}
+        onPointerEnter={() => setThreeHover(true)}
         ref={cardRef}
         position-x={spring.positionX}
         position-y={position[1]}
@@ -78,11 +82,12 @@ const Card = ({
               background: 'transparent',
               color: '#fff',
               cursor: 'pointer',
-            }}>
+            }}
+          >
             <div
               onClick={handleHTMLClick}
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
+              onMouseEnter={() => setHtmlHover(true)}
+              onMouseLeave={() => setHtmlHover(false)}
               style={{
                 width: '100%',
                 height: '100%',
@@ -119,7 +124,7 @@ const Card = ({
 
               <span
                 style={{
-                  fontSize: 4,
+                  fontSize: 3.5,
                   marginTop: 4,
                 }}>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt

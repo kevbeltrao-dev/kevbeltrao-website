@@ -39,9 +39,7 @@ const Articles = ({ coffeeBeans, addBeans }: ArticleProps) => {
           <OrbitControls enableZoom={false} />
         </StyledCanvas>
 
-        <MakeItRainButton onClick={addBeans}>
-          Make it rain
-        </MakeItRainButton>
+        <MakeItRainButton onClick={addBeans}>Make it rain</MakeItRainButton>
       </Suspense>
     </Container>
   );
