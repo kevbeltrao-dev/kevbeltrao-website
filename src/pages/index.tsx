@@ -11,6 +11,8 @@ Globals.assign({
   frameLoop: 'always',
 });
 
+console.warn = () => {};
+
 const Home = () => {
   const [main, setMain] = useState<HTMLDivElement | null>(null);
   const scroll = useScroll(main);
