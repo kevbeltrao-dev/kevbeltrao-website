@@ -1,9 +1,10 @@
-import { MouseEventHandler, useRef, useState } from 'react';
+import { MouseEventHandler, useRef, useState, useEffect } from 'react';
+import { Mesh } from 'three';
 import { useFrame, ThreeEvent } from '@react-three/fiber';
 import { Html } from '@react-three/drei';
 import { useSpring } from '@react-spring/core';
 import { a } from '@react-spring/three';
-import { Mesh } from 'three';
+import { Globals } from '@react-spring/shared';
 
 interface CardProps {
   position: [number, number, number];
@@ -54,6 +55,10 @@ const Card = ({
   const handleHTMLClick: MouseEventHandler<HTMLDivElement> = (event) => {
     handleClick(event as unknown as ThreeEvent<MouseEvent>);
   };
+
+  useEffect(() => {
+    Globals.assign({ frameLoop: 'always' });
+  }, []);
 
   return (
     <>
