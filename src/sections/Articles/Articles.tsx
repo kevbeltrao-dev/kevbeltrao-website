@@ -6,6 +6,7 @@ import Lights from './Scenes/Lights';
 import Macbook from './Scenes/Macbook';
 import Table from './Scenes/Table';
 import Guitar from './Scenes/Guitar';
+import Plane from './Scenes/Plane';
 import RubiksCube from './Scenes/RubiksCube';
 import BoloDeRolo from './Scenes/BoloDeRolo';
 
@@ -20,7 +21,7 @@ const Articles = ({ coffeeBeans, addBeans }: ArticleProps) => {
       <Title>Articles</Title>
 
       <Suspense fallback={<Loading />}>
-        <StyledCanvas frameloop="demand" camera={{ position: [0, 0.75, -3] }}>
+        <StyledCanvas camera={{ position: [0, 0.75, -3] }}>
           <Lights />
 
           <Physics>
@@ -35,6 +36,7 @@ const Articles = ({ coffeeBeans, addBeans }: ArticleProps) => {
           </Physics>
 
           <Guitar />
+          <Plane />
 
           <OrbitControls enableZoom={false} />
         </StyledCanvas>
