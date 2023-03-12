@@ -23,6 +23,7 @@ export const Title = styled.h2`
   color: #000;
   font-size: 4rem;
   font-weight: 600;
+  z-index: 1;
 `;
 
 export const MakeItRainButton = styled.button`

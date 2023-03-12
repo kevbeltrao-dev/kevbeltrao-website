@@ -69,7 +69,7 @@ const Testimonials = () => {
         <Subtitle>from my past managers</Subtitle>
       </TitleContainer>
 
-      <StyledCanvas frameloop="always">
+      <StyledCanvas>
         {cards}
         <Lights />
       </StyledCanvas>

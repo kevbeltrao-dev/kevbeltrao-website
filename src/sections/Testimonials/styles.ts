@@ -5,7 +5,6 @@ export const Container = styled.section`
   position: relative;
   height: 100vh;
   width: 100%;
-  cursor: pointer;
 
   @media (max-width: 900px) {
     display: none;
