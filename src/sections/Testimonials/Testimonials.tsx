@@ -6,6 +6,7 @@ import { Mesh } from 'three';
 import Card from './scenes/Card';
 import Lights from './scenes/Lights';
 import Mario from './scenes/Mario';
+import TurtleShell from './scenes/TurtleShell';
 import {
   Container,
   StyledCanvas,
@@ -19,10 +20,6 @@ const Testimonials = () => {
   const [isMarioJumping, setIsMarioJumping] = useState(false);
   const instanceApi = useRef<RapierRigidBody>(null);
   const marioRef = useRef<Mesh>(null);
-
-  // useEffect(() => {
-  //   instanceApi.lockRotations();
-  // }, []);
 
   const handleSelectCard = useCallback((event: ThreeEvent<MouseEvent>, index: number) => {
     event.stopPropagation();
@@ -107,6 +104,8 @@ const Testimonials = () => {
           setIsMarioJumping={setIsMarioJumping}
           runSpecificAnimation={runSpecificAnimation}
         />
+
+        <TurtleShell />
         <Lights />
       </StyledCanvas>
     </Container>
