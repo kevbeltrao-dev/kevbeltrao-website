@@ -1,7 +1,11 @@
+import { useAnimations } from '@react-three/drei';
 import { ThreeEvent } from '@react-three/fiber';
-import { useCallback, useMemo, useState } from 'react';
+import { RapierRigidBody } from '@react-three/rapier';
+import { useCallback, useMemo, useRef, useState } from 'react';
+import { Mesh } from 'three';
 import Card from './scenes/Card';
 import Lights from './scenes/Lights';
+import Mario from './scenes/Mario';
 import {
   Container,
   StyledCanvas,
@@ -12,6 +16,13 @@ import {
 
 const Testimonials = () => {
   const [selectedCard, setSelectedCard] = useState<number | null>(null);
+  const [isMarioJumping, setIsMarioJumping] = useState(false);
+  const instanceApi = useRef<RapierRigidBody>(null);
+  const marioRef = useRef<Mesh>(null);
+
+  // useEffect(() => {
+  //   instanceApi.lockRotations();
+  // }, []);
 
   const handleSelectCard = useCallback((event: ThreeEvent<MouseEvent>, index: number) => {
     event.stopPropagation();
@@ -62,15 +73,40 @@ const Testimonials = () => {
       />
     ));}, [handleSelectCard, selectedCard]);
 
+  const onContainerClick = () => {
+    document.body.dispatchEvent(new Event('onContainerClick'));
+  };
+
+  const runSpecificAnimation = useCallback((
+    animationName: 'mixamo.com' | 'Run' | 'Jump',
+    animations: ReturnType<typeof useAnimations>
+  ) => {
+    const animationOptions = ['mixamo.com', 'Run', 'Jump'];
+    animationOptions.forEach((animation) => {
+      if (animation === animationName) {
+        return animations.actions[animationName]!.play();
+      }
+      animations.actions[animation]!.stop();
+    });
+  }, []);
+
   return (
-    <Container>
+    <Container onClick={onContainerClick}>
       <TitleContainer>
         <Title>Testimonials</Title>
         <Subtitle>from my past managers</Subtitle>
       </TitleContainer>
 
-      <StyledCanvas>
+      <StyledCanvas eventPrefix="client">
         {cards}
+
+        <Mario
+          marioRef={marioRef}
+          instanceApi={instanceApi}
+          isJumping={isMarioJumping}
+          setIsMarioJumping={setIsMarioJumping}
+          runSpecificAnimation={runSpecificAnimation}
+        />
         <Lights />
       </StyledCanvas>
     </Container>
