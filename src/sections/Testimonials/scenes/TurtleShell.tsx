@@ -12,6 +12,7 @@ const TurtleShell = () => {
     if (!ref.current) return;
 
     ref.current.position.x += delta * 5;
+    ref.current.rotation.y += delta * 5;
 
     if (ref.current.position.x > 20) {
       ref.current.position.x = -20;
