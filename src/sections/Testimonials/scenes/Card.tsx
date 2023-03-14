@@ -3,6 +3,7 @@ import { Mesh } from 'three';
 import { useFrame, ThreeEvent } from '@react-three/fiber';
 import { Html } from '@react-three/drei';
 import { useSpring, animated } from '@react-spring/three';
+import styled from 'styled-components';
 
 interface CardProps {
   position: [number, number, number];
@@ -11,7 +12,22 @@ interface CardProps {
   name: string;
   company: string;
   image: string;
+  text1: string;
+  text2: string;
+  linkedin: string;
 }
+
+const LinkedinLink = styled.a`
+  font-size: 4px;
+  margin-top: 4px;
+  font-weight: bold;
+  text-decoration: underline;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #CD428D;
+  }
+`;
 
 const Card = ({
   position,
@@ -20,6 +36,9 @@ const Card = ({
   name,
   company,
   image,
+  text1,
+  text2,
+  linkedin,
 }: CardProps) => {
   const cardRef = useRef<Mesh>(null);
   const [htmlHover, setHtmlHover] = useState(false);
@@ -39,13 +58,14 @@ const Card = ({
   }, [htmlHover, threeHover]);
 
   const spring = useSpring({
-    scale: (htmlHover || threeHover) ? 1.05 : 1,
     ...(isSelected
       ? {
         positionX: 0,
+        positionY: 0,
         positionZ: 2,
       } : {
         positionX: position[0],
+        positionY: position[1],
         positionZ: position[2],
       }),
   });
@@ -74,13 +94,12 @@ const Card = ({
         onPointerEnter={() => setThreeHover(true)}
         ref={cardRef}
         position-x={spring.positionX}
-        position-y={position[1]}
+        position-y={spring.positionY}
         position-z={spring.positionZ}
-        scale={spring.scale}
         onClick={handleClick}
       >
-        <boxGeometry args={[2, 3, 0.5]} />
-        <meshStandardMaterial color="#020154" />
+        <boxGeometry args={[2.5, 3.5, 0.5]} />
+        <meshStandardMaterial color={ htmlHover || threeHover ? '#02015b' : '#020154' } />
 
         <group position-z={0.26}>
           <Html
@@ -89,8 +108,8 @@ const Card = ({
             style={{
               opacity: 1,
               transition: 'opacity 0.3s',
-              width: 79,
-              height: 120,
+              width: 100,
+              height: 140,
               background: 'transparent',
               color: '#fff',
               cursor: 'pointer',
@@ -127,22 +146,20 @@ const Card = ({
                 />
               </div>
               
-              <span
-                style={{
-                  fontSize: 4,
-                  marginTop: 4,
-                  fontWeight: 'bold',
-                }}>{name} - {company}</span>
+              <LinkedinLink href={linkedin} target="_blank">
+                {name} - {company}
+              </LinkedinLink>
 
               <span
                 style={{
-                  fontSize: 3.5,
+                  fontSize: 3,
                   marginTop: 4,
-                }}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                }}
+              >
+                {text1}
                 <br />
                 <br />
-                  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.
+                {text2}
               </span>
 
             </div>

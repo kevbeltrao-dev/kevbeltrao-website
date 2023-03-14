@@ -5,7 +5,6 @@ import { Mesh } from 'three';
 
 const TurtleShell = () => {
   const turtleShell = useGLTF('/turtle_shell.glb');
-  const initialPosition = -3;
   const ref = useRef<Mesh>(null);
 
   useFrame((state, delta) => {

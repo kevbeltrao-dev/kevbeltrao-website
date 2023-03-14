@@ -15,6 +15,15 @@ import {
   Subtitle,
 } from './styles';
 
+interface Testimonal {
+  name: string;
+  company: string;
+  image: string;
+  text1: string;
+  text2: string;
+  linkedin: string;
+}
+
 const Testimonials = () => {
   const [selectedCard, setSelectedCard] = useState<number | null>(null);
   const [isMarioJumping, setIsMarioJumping] = useState(false);
@@ -32,21 +41,30 @@ const Testimonials = () => {
   }, [selectedCard]);
 
   const cards = useMemo(() => {
-    const testmonials = [
+    const testmonials: Testimonal[] = [
       {
         name: 'Danilo Simei',
         company: 'Neurotech',
         image: '/lilin.jpeg',
+        text1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
+        text2: 'labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.',
+        linkedin: 'https://www.linkedin.com/in/danilosimei/',
       },
       {
         name: 'Mike Greenspan',
         company: 'Auvik',
         image: '/mike.jpeg',
+        text1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
+        text2: 'labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.',
+        linkedin: 'https://www.linkedin.com/in/michael-greenspan-devmanager/',
       },
       {
         name: 'Dan Pettit',
         company: 'Appcues',
         image: '/dan.jpeg',
+        text1:  'As a highly skilled and experienced JavaScript developer, I highly recommend Kevin for any team looking for a talented and dedicated developer. Kevin has a deep understanding of the language and its various frameworks and libraries, and is able to create efficient, scalable, and maintainable code.',
+        text2: 'Moreover, Kevin is an excellent team mate, always willing to collaborate and share their expertise to help the team succeed. They communicate clearly and effectively, listen to others’ ideas, and are always open to constructive feedback. Their positive attitude and strong work ethic make them a pleasure to work with and a valuable asset to any team.',
+        linkedin: 'https://www.linkedin.com/in/dan-pettit-1b88384/',
       },
     ];
 
@@ -54,19 +72,21 @@ const Testimonials = () => {
       name,
       company,
       image,
-    }: {
-        name: string;
-        company: string;
-        image: string;
-      }, index: number) => (
+      text1,
+      text2,
+      linkedin,
+    }, index: number) => (
       <Card
         key={`testimonial-card-${name}`}
         isSelected={selectedCard === index}
-        position={[3 * (index - 1), -0.5, 0]}
+        position={[3.5 * (index - 1), -0.5, 0]}
         handleClick={(event: ThreeEvent<MouseEvent>) => handleSelectCard(event, index)}
         name={name}
         company={company}
         image={image}
+        text1={text1}
+        text2={text2}
+        linkedin={linkedin}
       />
     ));}, [handleSelectCard, selectedCard]);
 
