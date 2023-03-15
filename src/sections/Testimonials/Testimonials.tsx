@@ -112,7 +112,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <Container onClick={onContainerClick}>
+    <Container id="testimonials" onClick={onContainerClick}>
       <TitleContainer>
         <Title>Testimonials</Title>
         <Subtitle>from my past managers</Subtitle>
