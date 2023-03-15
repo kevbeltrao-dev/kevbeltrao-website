@@ -21,6 +21,7 @@ interface Testimonal {
   image: string;
   text1: string;
   text2: string;
+  text3?: string;
   linkedin: string;
 }
 
@@ -46,8 +47,9 @@ const Testimonials = () => {
         name: 'Danilo Simei',
         company: 'Neurotech',
         image: '/lilin.jpeg',
-        text1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-        text2: 'labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.',
+        text1: 'Kev is undoubtedly one of the best professionals and high spirited I have ever worked with. He is an easy going guy who makes the environment funny, enjoyable, comfortable.',
+        text2: 'Kev has extensive experience in designing and developing complex software systems, with a deep understanding of JS (the best to be honest). They have a proven track record of delivering high-quality work under tight deadlines, with exceptional attention to detail and a commitment to excellence.',
+        text3: 'In addition to their technical expertise, Kev is an excellent communicator and collaborator, able to work effectively in team environments and provide guidance to other team members. They are always willing to go above and beyond to ensure the success of the project and the satisfaction of the client.',
         linkedin: 'https://www.linkedin.com/in/danilosimei/',
       },
       {
@@ -74,6 +76,7 @@ const Testimonials = () => {
       image,
       text1,
       text2,
+      text3,
       linkedin,
     }, index: number) => (
       <Card
@@ -86,6 +89,7 @@ const Testimonials = () => {
         image={image}
         text1={text1}
         text2={text2}
+        text3={text3}
         linkedin={linkedin}
       />
     ));}, [handleSelectCard, selectedCard]);

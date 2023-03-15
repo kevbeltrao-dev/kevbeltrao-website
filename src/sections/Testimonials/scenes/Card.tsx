@@ -14,6 +14,7 @@ interface CardProps {
   image: string;
   text1: string;
   text2: string;
+  text3?: string;
   linkedin: string;
 }
 
@@ -38,6 +39,7 @@ const Card = ({
   image,
   text1,
   text2,
+  text3,
   linkedin,
 }: CardProps) => {
   const cardRef = useRef<Mesh>(null);
@@ -152,7 +154,7 @@ const Card = ({
 
               <span
                 style={{
-                  fontSize: 3,
+                  fontSize: 2.6,
                   marginTop: 4,
                 }}
               >
@@ -160,6 +162,14 @@ const Card = ({
                 <br />
                 <br />
                 {text2}
+
+                {text3 && (
+                  <>
+                    <br />
+                    <br />
+                    {text3}
+                  </>
+                )}
               </span>
 
             </div>
