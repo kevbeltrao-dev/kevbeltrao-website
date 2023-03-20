@@ -56,8 +56,8 @@ const Testimonials = () => {
         name: 'Mike Greenspan',
         company: 'Auvik',
         image: '/mike.jpeg',
-        text1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-        text2: 'labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.',
+        text1: 'Kevin is a wonderful engineer to work with. He has an extremely positive attitude and is very easy to get along with. He is a deep thinker who thoroughly learns the nuances of the stack he is working in. He has a thirst for knowledge, and uses every day as a new learning opportunity.',
+        text2: ' Kevin isn’t an engineer who sits in the corner and codes by himself, but he brings a powerful collaborative energy to his teams and is always looking for ways to improve how his teams work. I would definitely recommend Kevin to a team looking for a great engineer.',
         linkedin: 'https://www.linkedin.com/in/michael-greenspan-devmanager/',
       },
       {
