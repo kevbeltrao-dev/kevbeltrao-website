@@ -5,8 +5,12 @@ export const Container = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 50px 50px;
+  padding: 50px;
   position: relative;
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
+    padding: 20px;
+  }
 `;
 
 export const TopBar = styled.div`
@@ -130,6 +134,5 @@ export const Description = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
     font-size: 1rem;
-    max-width: 100%;
   }
 `;

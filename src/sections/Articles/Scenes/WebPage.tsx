@@ -19,6 +19,7 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
     containerIframe.style.height = '100%';
 
     containerIframe.contentDocument!.body.innerHTML = articles[currentArticle].content;
+    containerIframe.contentDocument!.body.scrollTop = 0;
 
     const documentIframe = containerIframe.contentDocument!;
 
