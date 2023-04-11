@@ -10,34 +10,40 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
   const [articles, setArticles] = useState<{ content: string; url: string }[]>([]);
   const htmlRef = useRef<HTMLDivElement>(null);
 
+  const removeByQueries = (container: Document, queries: string[]): void => {
+    queries.forEach((query) => {
+      container.querySelector(query)?.remove();
+    });
+  };
+
   useEffect(() => {
     if (!articles[currentArticle] || !htmlRef.current) return;
 
-    const containerIframe = htmlRef.current!.querySelector('iframe')!;
+    const containerIframe = htmlRef.current.querySelector('iframe')!;
 
     containerIframe.style.width = '100%';
     containerIframe.style.height = '100%';
 
-    containerIframe.contentDocument!.body.innerHTML = articles[currentArticle].content;
-    containerIframe.contentDocument!.body.scrollTop = 0;
-
     const documentIframe = containerIframe.contentDocument!;
 
-    documentIframe.querySelector('.crayons-header')?.remove();
-    documentIframe.querySelector('.crayons-article-actions')?.remove();
-    documentIframe.querySelector('.multiple_reactions_engagement')?.remove();
+    documentIframe!.body.innerHTML = articles[currentArticle].content;
+    documentIframe!.body.scrollTop = 0;
 
-    const cover = documentIframe.querySelector<HTMLElement>('.crayons-article__cover');
-    cover!.style.paddingTop = '25%';
-    cover!.querySelector('img')!.style.objectFit = 'cover';
-    
+    removeByQueries(documentIframe, [
+      '.crayons-header',
+      '.crayons-article-actions',
+      '.multiple_reactions_engagement',
+    ]);
+
+    const cover = documentIframe.querySelector<HTMLElement>('.crayons-article__cover')!;
+    cover.style.paddingTop = '25%';
+    cover.querySelector('img')!.style.objectFit = 'cover';
+
     const articleHeader = documentIframe
-      .querySelector<HTMLElement>('.crayons-article__header__meta');
+      .querySelector<HTMLElement>('.crayons-article__header__meta')!;
 
-    documentIframe
-      .querySelector<HTMLElement>('.crayons-article__header__meta')!.style.paddingTop = '15px';
-
-    articleHeader!.querySelector<HTMLElement>('.items-start')!.style.marginBottom = '0';
+    articleHeader.style.paddingTop = '15px';
+    articleHeader.querySelector<HTMLElement>('.items-start')!.style.marginBottom = '0';
   }, [articles, currentArticle]);
 
   useEffect(() => {
@@ -76,7 +82,7 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
     }
     setCurrentArticle(currentArticle - 1);
   };
-  
+
   return (
     <>
       <Html
@@ -150,5 +156,5 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
     </>
   );
 };
- 
+
 export default WebPage;
