@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic';
 import { Main } from '../styles/main';
 import useScroll from '@/hooks/useScroll';
 import Banner from '@/sections/Banner';
+import Loading from '@/components/Loading';
 
 Globals.assign({
   frameLoop: 'always',
@@ -15,8 +16,15 @@ console.warn = () => {};
 
 const sectionsClassNames = ['first', 'second', 'third'];
 
-const Articles = dynamic(() => import('@/sections/Articles'), { ssr: false });
-const Testimonials = dynamic(() => import('@/sections/Testimonials'), { ssr: false });
+const Articles = dynamic(() => import('@/sections/Articles'), {
+  ssr: false,
+  loading: () => <Loading />,
+});
+
+const Testimonials = dynamic(() => import('@/sections/Testimonials'), {
+  ssr: false,
+  loading: () => <Loading />,
+});
 
 const Home = () => {
   const [main, setMain] = useState<HTMLDivElement | null>(null);
