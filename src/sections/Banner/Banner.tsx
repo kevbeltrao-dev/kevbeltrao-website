@@ -14,6 +14,7 @@ import {
 import Button from '@/components/Button';
 import ContactButton from '@/components/ContactButton';
 import ContactModal from '@/components/ContactModal';
+import ArrowDownButton from '@/components/ArrowDownButton';
 
 interface BannerProps {
   isContactModalOpen: boolean;
@@ -73,6 +74,10 @@ const Banner = ({
         <ContactButton onClick={openModal} />
 
         <ContactModal isOpen={isContactModalOpen} closeModal={closeModal} />
+
+        <footer>
+          <ArrowDownButton />
+        </footer>
       </BannerContent>
     </Container>
   );

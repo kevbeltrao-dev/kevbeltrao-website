@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const Container = styled.section`
   height: 100vh;
@@ -8,6 +8,15 @@ export const Container = styled.section`
   flex-direction: column;
   padding: 50px;
   position: relative;
+
+  footer {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
     padding: 20px;
