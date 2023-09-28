@@ -47,7 +47,7 @@ const Home = () => {
         <link rel="manifest" href="/favicon/site.webmanifest"></link>
       </Head>
 
-      <Main className={backgroundClass} ref={mainRef}>
+      <Main suppressHydrationWarning className={backgroundClass} ref={mainRef}>
         <Banner />
         <Articles />
         <Testimonials />
