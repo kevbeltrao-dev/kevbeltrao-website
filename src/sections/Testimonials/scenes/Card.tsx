@@ -141,7 +141,7 @@ const Card = ({
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={image}
-                  alt=""
+                  alt="Avatar picture"
                   style={{
                     width: '100%',
                   }}

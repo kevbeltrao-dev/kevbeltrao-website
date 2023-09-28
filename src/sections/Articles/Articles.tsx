@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { OrbitControls } from '@react-three/drei';
 import { Physics } from '@react-three/rapier';
+
 import { Container, MakeItRainButton, StyledCanvas, Title, Loading } from './Scenes/styles';
 import Lights from './Scenes/Lights';
 import Macbook from './Scenes/Macbook';
@@ -21,7 +22,7 @@ const Articles = ({ coffeeBeans, addBeans }: ArticleProps) => {
       <Title>Articles</Title>
 
       <Suspense fallback={<Loading />}>
-        <StyledCanvas camera={{ position: [0, 0.75, -3] }}>
+        <StyledCanvas camera={{ position: [0, 0.75, -3] }} suppressHydrationWarning>
           <Lights />
 
           <Physics>
