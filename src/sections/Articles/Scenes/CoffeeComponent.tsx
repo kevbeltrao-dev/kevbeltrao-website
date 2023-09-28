@@ -14,7 +14,7 @@ interface GLTFResult extends GLTF {
 }
 
 const CoffeeComponent = () => {
-  const { nodes, materials } = useGLTF('/coffeeBean.glb') as GLTFResult;
+  const { nodes, materials } = useGLTF('/coffeeBean.glb') as unknown as GLTFResult;
 
   return (
     <group dispose={null}>
