@@ -16,12 +16,12 @@ console.warn = () => {};
 
 const sectionsClassNames = ['first', 'second', 'third'];
 
-const Articles = dynamic(() => import('@/sections/Articles'), {
+const Articles = dynamic(() => import('@/sections/Articles').then((module) => module.default), {
   ssr: false,
   loading: () => <Loading />,
 });
 
-const Testimonials = dynamic(() => import('@/sections/Testimonials'), {
+const Testimonials = dynamic(() => import('@/sections/Testimonials').then((module) => module.default), {
   ssr: false,
   loading: () => <Loading />,
 });
