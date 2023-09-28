@@ -21,7 +21,7 @@ const Articles = ({ coffeeBeans, addBeans }: ArticleProps) => {
       <Title>Articles</Title>
 
       <Suspense fallback={<Loading />}>
-        <StyledCanvas camera={{ position: [0, 0.75, -3] }}>
+        <StyledCanvas camera={{ position: [0, 0.75, -3] }} suppressHydrationWarning>
           <Lights />
 
           <Physics>
