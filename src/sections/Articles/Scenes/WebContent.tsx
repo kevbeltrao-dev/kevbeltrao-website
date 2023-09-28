@@ -56,7 +56,7 @@ const WebContent = () => {
       <h1 style={{ fontSize: '24px', textAlign: 'center', margin: 0 }}>{article?.title}</h1>
 
       { /* eslint-disable-next-line @next/next/no-img-element */ }
-      <img style={{ width: '200px' }} src={article?.socialImage} alt="" />
+      <img style={{ width: '200px' }} src={article?.socialImage} alt="Banner" />
 
       <OpenArticle onClick={() => window.open(article?.url, '_blank')}>
         Open article

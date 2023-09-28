@@ -13,6 +13,8 @@ Globals.assign({
 
 console.warn = () => {};
 
+const sectionsClassNames = ['first', 'second', 'third'];
+
 const Home = () => {
   const [main, setMain] = useState<HTMLDivElement | null>(null);
   const scroll = useScroll(main);
@@ -24,13 +26,11 @@ const Home = () => {
   }, []);
 
   const backgroundClass = useMemo(() => {
-    if (typeof window === 'undefined') return '';
+    if (typeof window === 'undefined') return sectionsClassNames[0];
     
     const { innerHeight: screenHeight } = window;
     
     const sectionInScreen = Math.ceil((2 * scroll - screenHeight) / (2 * screenHeight));
-
-    const sectionsClassNames = ['first', 'second', 'third'];
 
     return sectionsClassNames[sectionInScreen];
   }, [scroll]);
