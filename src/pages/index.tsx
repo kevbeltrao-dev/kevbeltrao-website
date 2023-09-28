@@ -47,10 +47,10 @@ const Home = () => {
         <link rel="manifest" href="/favicon/site.webmanifest"></link>
       </Head>
 
-      <Main suppressHydrationWarning className={backgroundClass} ref={mainRef}>
+      <Main className={backgroundClass} ref={mainRef}>
         <Banner />
         <Articles />
-        <Testimonials />
+        {/* <Testimonials /> */}
       </Main>
     </>
   );
