@@ -48,7 +48,7 @@ const Home = () => {
       </Head>
 
       <Main className={backgroundClass} ref={mainRef}>
-        {/* <Banner /> */}
+        <Banner />
         {/* <Articles />
         <Testimonials /> */}
       </Main>
