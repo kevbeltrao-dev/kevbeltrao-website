@@ -66,8 +66,6 @@ const Mario = ({
   useFrame((state, delta) => {
     if (!marioRef.current) return;
 
-    console.log(marioRef.current.rotation);
-
     const mouseX = state.mouse.x * 10 / 2;
     const { x: marioX } = marioRef.current.position;
 
