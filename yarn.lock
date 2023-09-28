@@ -314,12 +314,19 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.19.0"
 
-"@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.7", "@babel/runtime@^7.17.8", "@babel/runtime@^7.20.7", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.7", "@babel/runtime@^7.20.7", "@babel/runtime@^7.9.2":
   version "7.21.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.21.0.tgz#5b55c9d394e5fcf304909a8b00c07dc217b56673"
   integrity sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw==
   dependencies:
     regenerator-runtime "^0.13.11"
+
+"@babel/runtime@^7.17.8":
+  version "7.23.1"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.23.1.tgz#72741dc4d413338a91dcb044a86f3c0bc402646d"
+  integrity sha512-hC2v6p8ZSI/W0HUzh3V8C5g+NwSKzKPtJwSpTjwl0o297GP9+ZLQSkdvHz46CM3LqyoXxq+5G9komY+eSqSO0g==
+  dependencies:
+    regenerator-runtime "^0.14.0"
 
 "@babel/template@^7.20.7", "@babel/template@^7.22.15":
   version "7.22.15"
@@ -982,17 +989,18 @@
     zustand "^3.5.13"
 
 "@react-three/fiber@^8.11.9":
-  version "8.11.9"
-  resolved "https://registry.yarnpkg.com/@react-three/fiber/-/fiber-8.11.9.tgz#50ba430b1cd52c7853d1adeefe06ad397c35da93"
-  integrity sha512-5vZBlbdy+QbNIIjohERs1NL59LOo6XQwM4x4jjV1PKc5KkSy+73Y+/tQGdz6muEkbeOCt4TeM2KtcFjoAdjl1g==
+  version "8.14.3"
+  resolved "https://registry.yarnpkg.com/@react-three/fiber/-/fiber-8.14.3.tgz#96af88ca33515608d822e35475218043d9f6e309"
+  integrity sha512-i1IldQKsotrm7lFG5emEofWs2IDHdPigp648d7Bh1B2p8Y+T5WVVHvEHsB9Ou5n5N773OxFWV++8sV9cdD44UA==
   dependencies:
     "@babel/runtime" "^7.17.8"
     "@types/react-reconciler" "^0.26.7"
+    base64-js "^1.5.1"
     its-fine "^1.0.6"
     react-reconciler "^0.27.0"
     react-use-measure "^2.1.1"
     scheduler "^0.21.0"
-    suspend-react "^0.0.8"
+    suspend-react "^0.1.3"
     zustand "^3.7.1"
 
 "@react-three/rapier@^0.14.0":
@@ -1193,9 +1201,9 @@
     "@types/react" "*"
 
 "@types/react-reconciler@^0.28.0":
-  version "0.28.2"
-  resolved "https://registry.yarnpkg.com/@types/react-reconciler/-/react-reconciler-0.28.2.tgz#f16b0e8cc4748af70ca975eaaace0d79582c71fa"
-  integrity sha512-8tu6lHzEgYPlfDf/J6GOQdIc+gs+S2yAqlby3zTsB3SP2svlqTYe5fwZNtZyfactP74ShooP2vvi1BOp9ZemWw==
+  version "0.28.5"
+  resolved "https://registry.yarnpkg.com/@types/react-reconciler/-/react-reconciler-0.28.5.tgz#cf3865d09973963ae73fddb01d40a8535d900bde"
+  integrity sha512-Qrwgl4NxNYH1oAJSJtlMGu95uaeMqrGiKzxwI90VvofBkJAj4GxcCAsJMZkwdR/qAxlm84YEXa8Fqu2xXk0arw==
   dependencies:
     "@types/react" "*"
 
@@ -1555,6 +1563,11 @@ balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
+
+base64-js@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"
+  integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
 bidi-js@^1.0.2:
   version "1.0.2"
@@ -2966,9 +2979,9 @@ istanbul-reports@^3.1.3:
     istanbul-lib-report "^3.0.0"
 
 its-fine@^1.0.6:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/its-fine/-/its-fine-1.0.10.tgz#07d19f7194ca60dd70abeb68614fe81fef235a33"
-  integrity sha512-3ZRmDCocq0vmxplC866rEe4PPgOSsuRw90/tvT7nT5QndqIQWsecZPJh75rqSQSn06MxKOjX7rWV/7cFhVsCBg==
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/its-fine/-/its-fine-1.1.1.tgz#e74b93fddd487441f978a50f64f0f5af4d2fc38e"
+  integrity sha512-v1Ia1xl20KbuSGlwoaGsW0oxsw8Be+TrXweidxD9oT/1lAh6O3K3/GIM95Tt6WCiv6W+h2M7RB1TwdoAjQyyKw==
   dependencies:
     "@types/react-reconciler" "^0.28.0"
 
@@ -3998,6 +4011,11 @@ regenerator-runtime@^0.13.11:
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz#f6dca3e7ceec20590d07ada785636a90cdca17f9"
   integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
 
+regenerator-runtime@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.14.0.tgz#5e19d68eb12d486f797e15a3c6a918f7cec5eb45"
+  integrity sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==
+
 regexp-to-ast@0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/regexp-to-ast/-/regexp-to-ast-0.5.0.tgz#56c73856bee5e1fef7f73a00f1473452ab712a24"
@@ -4355,6 +4373,11 @@ suspend-react@^0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/suspend-react/-/suspend-react-0.0.8.tgz#b0740c1386b4eb652f17affe4339915ee268bd31"
   integrity sha512-ZC3r8Hu1y0dIThzsGw0RLZplnX9yXwfItcvaIzJc2VQVi8TGyGDlu92syMB5ulybfvGLHAI5Ghzlk23UBPF8xg==
+
+suspend-react@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/suspend-react/-/suspend-react-0.1.3.tgz#a52f49d21cfae9a2fb70bd0c68413d3f9d90768e"
+  integrity sha512-aqldKgX9aZqpoDp3e8/BZ8Dm7x1pJl+qI3ZKxDN0i/IQTWUwBx/ManmlVJ3wowqbno6c2bmiIfs+Um6LbsjJyQ==
 
 synckit@^0.8.4:
   version "0.8.5"
