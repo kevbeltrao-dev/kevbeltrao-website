@@ -1,12 +1,17 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, lazy, Suspense, useEffect } from 'react';
 import { Globals } from '@react-spring/three';
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 
 import { Main } from '../styles/main';
 import useScroll from '@/hooks/useScroll';
 import Banner from '@/sections/Banner';
 import Loading from '@/components/Loading';
+
+import Articles from '@/sections/Articles';
+import Testimonials from '@/sections/Testimonials';
+// const Articles = lazy(() => import('@/sections/Articles'));
+// const Testimonials = lazy(() => import('@/sections/Testimonials'));
 
 Globals.assign({
   frameLoop: 'always',
@@ -16,19 +21,24 @@ console.warn = () => {};
 
 const sectionsClassNames = ['first', 'second', 'third'];
 
-const Articles = dynamic(() => import('../sections/Articles'), {
-  ssr: false,
-  loading: () => <Loading />,
-});
+// const Articles = dynamic(() => import('@/sections/Articles'), {
+//   ssr: false,
+//   loading: () => <Loading />,
+// });
 
-const Testimonials = dynamic(() => import('../sections/Testimonials'), {
-  ssr: false,
-  loading: () => <Loading />,
-});
+// const Testimonials = dynamic(() => import('@/sections/Testimonials'), {
+//   ssr: false,
+//   loading: () => <Loading />,
+// });
 
 const Home = () => {
   const [main, setMain] = useState<HTMLDivElement | null>(null);
   const scroll = useScroll(main);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const mainRef = useCallback((node: HTMLDivElement) => {
     if (node !== null) {
@@ -60,8 +70,13 @@ const Home = () => {
 
       <Main className={backgroundClass} ref={mainRef}>
         <Banner />
-        <Articles />
-        <Testimonials />
+
+        {isClient && (
+          <div>
+            <Articles />
+            <Testimonials />
+          </div>
+        )}
       </Main>
     </>
   );
