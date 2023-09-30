@@ -1,12 +1,14 @@
 import { useState, useMemo, useCallback } from 'react';
 import { Globals } from '@react-spring/three';
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
 
 import { Main } from '../styles/main';
 import useScroll from '@/hooks/useScroll';
 import Banner from '@/sections/Banner';
-import Loading from '@/components/Loading';
+
+import Articles from '@/sections/Articles';
+
+import Testimonials from '@/sections/Testimonials';
 
 Globals.assign({
   frameLoop: 'always',
@@ -15,14 +17,6 @@ Globals.assign({
 console.warn = () => {};
 
 const sectionsClassNames = ['first', 'second', 'third'];
-
-const Articles = dynamic(() => import('@/sections/Articles'), {
-  ssr: false,
-});
-
-const Testimonials = dynamic(() => import('@/sections/Testimonials'), {
-  ssr: false,
-});
 
 const Home = () => {
   const [main, setMain] = useState<HTMLDivElement | null>(null);
