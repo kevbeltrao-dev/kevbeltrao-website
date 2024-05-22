@@ -24,7 +24,6 @@ export const StyledButton = styled.button`
   background-color: var(--color-secondary);
   border: 0;
   border-radius: 50%;
-  outline: none;
 
   display: grid;
   place-items: center;

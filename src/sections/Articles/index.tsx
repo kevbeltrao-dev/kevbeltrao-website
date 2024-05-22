@@ -1,4 +1,4 @@
-import { useState, memo, RefObject } from 'react';
+import { useState, memo } from 'react';
 import Articles from './Articles';
 import CoffeeBean from './Scenes/CoffeeBean';
 

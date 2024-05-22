@@ -14,4 +14,8 @@ export const Button = styled.button`
   &:hover {
     transform: scale(1.1);
   }
+
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;

@@ -19,15 +19,20 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
   useEffect(() => {
     if (!articles[currentArticle] || !htmlRef.current) return;
 
-    const containerIframe = htmlRef.current.querySelector('iframe')!;
+    const containerIframe = htmlRef.current.querySelector('iframe');
 
-    containerIframe.style.width = '100%';
-    containerIframe.style.height = '100%';
+    if (!containerIframe) return;
 
-    const documentIframe = containerIframe.contentDocument!;
+    Object.assign(containerIframe.style, {
+      width: '100%',
+      height: '100%',
+    });
 
-    documentIframe!.body.innerHTML = articles[currentArticle].content;
-    documentIframe!.body.scrollTop = 0;
+    const documentIframe = containerIframe.contentDocument;
+    if (!documentIframe) return;
+
+    documentIframe.body.innerHTML = articles[currentArticle].content;
+    documentIframe.body.scrollTop = 0;
 
     removeByQueries(documentIframe, [
       '.crayons-header',
@@ -35,15 +40,22 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
       '.multiple_reactions_engagement',
     ]);
 
-    const cover = documentIframe.querySelector<HTMLElement>('.crayons-article__cover')!;
-    cover.style.paddingTop = '25%';
-    cover.querySelector('img')!.style.objectFit = 'cover';
+    const cover = documentIframe.querySelector<HTMLElement>('.crayons-article__cover');
+    if (!cover) return;
+
+    cover.style.height = '0';
+
+    const coverImage = cover.querySelector('img');
+    if (!coverImage) return;
+
+    coverImage.style.objectFit = 'cover';
 
     const articleHeader = documentIframe
       .querySelector<HTMLElement>('.crayons-article__header__meta')!;
-
-    articleHeader.style.paddingTop = '15px';
-    articleHeader.querySelector<HTMLElement>('.items-start')!.style.marginBottom = '0';
+    
+    const itemsStart = articleHeader.querySelector<HTMLElement>('.items-start');
+    if (!itemsStart) return;
+    itemsStart.style.marginBottom = '0';
   }, [articles, currentArticle]);
 
   useEffect(() => {
@@ -99,9 +111,9 @@ const WebPage = ({ currentArticle, setCurrentArticle }: WebPageProps) => {
         rotation={[0, Math.PI, 0]}
         scale={0.3}
       >
-        <a target="_blank" href="https://google.com">
-          <iframe></iframe>
-        </a>
+
+        <iframe></iframe>
+
       </Html>
 
       <Html

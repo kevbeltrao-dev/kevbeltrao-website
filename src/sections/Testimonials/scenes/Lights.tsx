@@ -1,7 +1,7 @@
 const Lights = () => {
   return (
     <>
-      <ambientLight intensity={1.3} />
+      <ambientLight intensity={4} />
       <pointLight position={[-3, 5, 1]} intensity={1.5} />
     </>
   );
