@@ -21,7 +21,8 @@ export const Main = styled.main`
   }
   
   &.second {
-    background-color: var(--color-white);
+    background-color: #E3E3FF;
+    background-color: var(--color-lightblue);
   }
 
   &.third {

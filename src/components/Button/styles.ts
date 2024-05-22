@@ -9,9 +9,16 @@ const patterns = {
   `,
 };
 
-const sharedStyles = css`
-  ${({ pattern }: { pattern: 'blue' | 'magenta', type?: 'button' | 'submit' }) => 
-    patterns[pattern]};
+type Pattern = 'blue' | 'magenta';
+type ButtonType = 'button' | 'submit';
+
+interface ButtonStyleProps {
+  pattern: Pattern;
+  type?: ButtonType;
+}
+
+const sharedStyles = css<ButtonStyleProps>`
+  ${({ pattern }) => patterns[pattern]};
   color: var(--color-white);
   font-size: 1.2rem;
   white-space: nowrap;
@@ -42,11 +49,11 @@ const sharedStyles = css`
   }
 `;
 
-export const StytledButton = styled.button`
+export const StytledButton = styled.button<ButtonStyleProps>`
   ${sharedStyles}
 `;
 
-export const StyledAnchor = styled.a`
+export const StyledAnchor = styled.a<ButtonStyleProps>`
   ${sharedStyles}
 `;
 
