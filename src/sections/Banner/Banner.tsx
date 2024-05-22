@@ -65,8 +65,7 @@ const Banner = ({
 
         <Description>
           I love teaching and am passionate about music.
-          I write articles in my free time and also produce YouTube videos
-          (currently for Portuguese speakers).
+          I write articles in my free time and also produce YouTube videos.
         </Description>
 
         <Button tag="a" href="/kevinBeltrao.pdf" target="_blank">my resume</Button>
