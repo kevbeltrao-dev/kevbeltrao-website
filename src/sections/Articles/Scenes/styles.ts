@@ -53,7 +53,11 @@ export const MakeItRainButton = styled.button`
   }
 `;
 
-export const Arrow = styled.button`
+interface ArrowPropsStyle {
+  left?: boolean;
+}
+
+export const Arrow = styled.button<ArrowPropsStyle>`
   border: solid black;
   border-width: 0 3px 3px 0;
   display: inline-block;
@@ -65,7 +69,7 @@ export const Arrow = styled.button`
   background-color: transparent;
   cursor: pointer;
 
-  ${({ left }: { left?: boolean }) => (
+  ${({ left }) => (
     left
       ? css`
         transform: translateY(-50%) rotate(135deg);
